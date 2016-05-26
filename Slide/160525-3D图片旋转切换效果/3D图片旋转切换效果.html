@@ -43,12 +43,21 @@ $(function(){
     var arrMl=[];            //保存所有li的marginLeft值
     var arrOpc=[];           //保存所有li的opacity值
     var n=0;                 //循环添加的变量
+    var time=new Date();     //新建一个当前的时间
 
     $(".banner .prev").click(function(){
-        move(0);
+        if(new Date()-time>500){
+            move(0);
+        }
+        time=new Date();     //重新赋值新的时间
+
     });
     $(".banner .next").click(function(){
-        move(1);
+        if(new Date-time>500){
+            move(1);
+        }
+        time=new Date();     //重新赋值新的时间
+
     });
 
     function move(mark){
@@ -85,7 +94,7 @@ $(function(){
                 "top":arrT[n],
                 "marginLeft":arrMl[n],
                 "opacity":arrOpc[n]
-            },500);
+            },500);             //当鼠标快速点击间隔小于500ms的时候会出问题，所以就有了开头的变量  time=new Date();
         }
     }
 })
